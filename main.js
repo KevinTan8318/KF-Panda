@@ -89,18 +89,23 @@ const characters = {
   },
 };
 
-function updatePage(charName, image, quote) {
+function updatePage(character, image, quote) {
+  document.getElementById("character-name").innerHTML = character;
+  document.getElementById("main-img").src = image;
+  document.getElementById("quote").innerHTML = quote;
+}
+
+function getInformation(charName) {
   for (let i = 0; i <= Object.keys(characters).length; i++) {
     // loops through X amount of times depending on how many values in the table
 
     if (characters[charName]) {
       // attempts to find the character
-      document.getElementById("character-name").innerHTML =
-        characters[charName].name;
+      let currentCharacter = characters[charName].name;
+      let currentImage = characters[charName].img;
+      let currentQuote = characters[charName].quote;
 
-      document.getElementById("main-img").src = characters[charName].img;
-      document.getElementById("quote").innerHTML = characters[charName].quote;
-      break;
+      updatePage(currentCharacter, currentImage, currentQuote);
     } else if (i == Object.keys(characters).length) {
       // when it loops through all and nothing was found
       document.getElementById("character-name").innerHTML = "?????";
@@ -114,5 +119,5 @@ function searchClicked() {
   let name = document.getElementById("input-name").value;
   name = name.toLowerCase();
   // call the function after the button is pressed
-  updatePage(name);
+  getInformation(name);
 }
