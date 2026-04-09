@@ -1,11 +1,5 @@
 document.getElementById("search").addEventListener("click", searchClicked);
 
-const NOT_FOUND = {
-  name: "?????",
-  img: "img/question-mark.png",
-  quote: "Character Not Found",
-};
-
 const characters = {
   po: {
     name: "Po",
